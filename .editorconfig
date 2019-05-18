@@ -1,0 +1,20 @@
+# top-most EditorConfig file
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+indent_size = 4
+indent_style = space
+
+# Don't corrupt git patch edit files
+[.git/**/*.diff]
+trim_trailing_whitespace = none
+
+[*.{yaml,yml}]
+indent_size = 2
+
+[Makefile]
+indent_style = tab

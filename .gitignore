@@ -1,0 +1,9 @@
+.*
+!.editorconfig
+!.python-version
+!.gitignore
+
+__pycache__
+
+# Shouldn't include these...
+workouts

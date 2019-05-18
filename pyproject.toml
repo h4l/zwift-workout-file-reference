@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "zwift-zwo-docs"
+include = ["analyse_zwo.py", "render_docs.py"]
+version = "0.1.0"
+description = "Documentation for Zwift's structured workout file format"
+authors = ["Hal Blackburn <hal.blackburn@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+docopt = "^0.6.2"
+lxml = "^4.3"
+pyyaml = "^5.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry.scripts]
+zwift-zwo-docs-analyse = 'zwift_zwo_docs.analyse_zwo:main'
+zwift-zwo-docs-render = 'zwift_zwo_docs.render_docs:main'
+
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py37
+skipsdist=True
+
+[testenv]
+whitelist_externals=make
+commands =
+    pip install .
+    make clean-md
+    make zwift_workout_file_tag_reference.md
+
+[testenv:py37-all]
+commands =
+    pip install .
+    make clean-all
+    make zwift_workout_file_tag_reference.md
+"""

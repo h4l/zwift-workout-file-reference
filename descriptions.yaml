@@ -1,0 +1,85 @@
+elements:
+  workout_file:
+    description: The root element of a Zwift workout file.
+
+  name:
+    description: The name of the workout in the Zwift workout list
+
+  author:
+    description: The name of the workout's creator
+
+  category:
+    description: |
+      The name of a section in the Zwift workout list to place this workout
+      inside.
+
+      Workouts will appear under the named section instead of the custom workout
+      section. [`<subcategory>`](#element-subcategory) can be used for a second
+      level of nesting.
+
+    examples: |
+      <workout_file>
+        <name>Workout 1</name>
+        <author>Jim</author>
+        <category>Jim's Amazing Workouts</category>
+        <!-- [...] -->
+      </workout_file>
+
+  subcategory:
+    description: |
+      The name of the section under the workout's
+      [`<category>`](#element-category) to list the workout under.
+
+    examples: |
+      <workout_file>
+        <name>Recovery 1</name>
+        <author>Jim</author>
+        <category>Jim's Amazing Workouts</category>
+        <subcategory>Easy Days</subcategory>
+        <!-- [...] -->
+      </workout_file>
+
+  ftpOverride:
+      description: |
+        Override the rider's FTP with a fixed value for the workout.
+
+        Can be used to create workouts with fixed power intervals.
+      examples:
+        title: Fixed power workout
+        description: |
+          This intervals in this workout will have the same target power,
+          regardless of the FTP of the rider.
+        interval_code: |
+          <!-- 50W - 150W -->
+          <Warmup Duration="30" PowerLow="0.5" PowerHigh="1.5"/>
+          <!-- 200W -->
+          <SteadyState Duration="30" Power="200"/>
+          <!-- 100W - 25W -->
+          <Warmup Duration="30" PowerLow="1" PowerHigh="0.25"/>
+
+  activitySaveName:
+      description: The workout's activity name will default to this value (instead of the workout name).
+  MaxEffort:
+    description: An interval without ERG mode but enough resistance for the rider to self-select a strong effort.
+
+    examples:
+      interval_code: |
+        <MaxEffort Duration="10"/>
+
+  TextNotification:
+    description: Doesn't seem to have any effect.
+
+  gameplayevent:
+    description: Trigger an event in the game, e.g. switch camera view.
+
+attributes:
+  name:
+    description: The name of the workout in the Zwift workout menu
+
+  Quantize:
+    description: |
+      Doesn't seem to have any effect.
+
+      It's seen on several built-in Zwift workouts, always on non-flat intervals with a value of `20`.
+      Presumably it refers to the power steps in the interval's ramp.
+
