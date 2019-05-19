@@ -55,7 +55,7 @@ elements:
           <!-- 200W -->
           <SteadyState Duration="30" Power="200"/>
           <!-- 100W - 25W -->
-          <Warmup Duration="30" PowerLow="1" PowerHigh="0.25"/>
+          <Cooldown Duration="30" PowerLow="1" PowerHigh="0.25"/>
 
   activitySaveName:
       description: The workout's activity name will default to this value (instead of the workout name).
