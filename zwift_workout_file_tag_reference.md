@@ -1304,7 +1304,10 @@ The root element of a Zwift workout file.
 
 ### Attribute `camera="…"`
 
-*Not yet described.*
+Specify the camera angle to change to in a
+[`<gameplayevent>`](#element-gameplayevent). Not tested, but the
+value appears to correspond to the numeric camera shortcut keys.
+
 
 <table>
 <tr>
