@@ -13,7 +13,7 @@ is such an example.
 
 [zwift-support-workouts]: https://support.zwift.com/en/-sharing-importing-custom-workouts-\(.zwo-files\)-\(cycling\)-r1IlCybrQ
 
-This is a work in progress. If you know about Zwift workouts you can help by
+This is a work in progress. If you know about Zwift workouts, you can help by
 [contributing to this guide](./README.md#contributing).
 
 ## Structure Index
@@ -464,7 +464,7 @@ regardless of the FTP of the rider.
     <!-- 200W -->
     <SteadyState Duration="30" Power="200"/>
     <!-- 100W - 25W -->
-    <Warmup Duration="30" PowerLow="1" PowerHigh="0.25"/>
+    <Cooldown Duration="30" PowerLow="1" PowerHigh="0.25"/>
   </workout>
 </workout_file>
 ````
@@ -472,6 +472,23 @@ regardless of the FTP of the rider.
 ### Element **`<gameplayevent>`**
 
 Trigger an event in the game, e.g. switch camera view.
+
+Possible values for [`type`](#attribute-type) seem to be:
+
+* Known to work:
+  * `GPE_CAMERA` — Combine with [`camera`](#attribute-camera) to specify a
+    camera angle to switch to.
+  * `GPE_CELEBRATION` — Use without additional attributes to trigger a small
+          audio/visual celebration effect.
+* Untested:
+  * `GPE_AUDIO`
+  * `GPE_DAILYTARGET`
+  * `GPE_ADD_ROADPROP`
+  * `GPE_PLAY_ANIM`
+  * `GPE_SCREENSHOT`
+  * `GPE_SET_ROUTE`
+  * `GPE_SET_NAVIGATION`
+
 
 <table>
 <tr>
@@ -1287,7 +1304,10 @@ The root element of a Zwift workout file.
 
 ### Attribute `camera="…"`
 
-*Not yet described.*
+Specify the camera angle to change to in a
+[`<gameplayevent>`](#element-gameplayevent). Not tested, but the
+value appears to correspond to the numeric camera shortcut keys.
+
 
 <table>
 <tr>
@@ -2450,7 +2470,9 @@ Presumably it refers to the power steps in the interval's ramp.
 
 ### Attribute `type="…"`
 
-*Not yet described.*
+The type of event to trigger. See
+[`<gameplayevent>`](#element-gameplayevent) for more info.
+
 
 <table>
 <tr>
