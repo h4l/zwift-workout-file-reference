@@ -70,7 +70,24 @@ elements:
     description: Doesn't seem to have any effect.
 
   gameplayevent:
-    description: Trigger an event in the game, e.g. switch camera view.
+    description: |
+      Trigger an event in the game, e.g. switch camera view.
+
+      Possible values for [`type`](#attribute-type) seem to be:
+
+      * Known to work:
+        * `GPE_CAMERA` — Combine with [`camera`](#attribute-camera) to specify a
+          camera angle to switch to.
+        * `GPE_CELEBRATION` — Use without additional attributes to trigger a small
+                audio/visual celebration effect.
+      * Untested:
+        * `GPE_AUDIO`
+        * `GPE_DAILYTARGET`
+        * `GPE_ADD_ROADPROP`
+        * `GPE_PLAY_ANIM`
+        * `GPE_SCREENSHOT`
+        * `GPE_SET_ROUTE`
+        * `GPE_SET_NAVIGATION`
 
 attributes:
   name:
@@ -83,3 +100,13 @@ attributes:
       It's seen on several built-in Zwift workouts, always on non-flat intervals with a value of `20`.
       Presumably it refers to the power steps in the interval's ramp.
 
+  type:
+    description: |
+      The type of event to trigger. See
+      [`<gameplayevent>`](#element-gameplayevent) for more info.
+
+  camera:
+    description: |
+      Specify the camera angle to change to in a
+      [`<gameplayevent>`](#element-gameplayevent). Not tested, but the
+      value appears to correspond to the numeric camera shortcut keys.
