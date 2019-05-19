@@ -105,3 +105,8 @@ attributes:
       The type of event to trigger. See
       [`<gameplayevent>`](#element-gameplayevent) for more info.
 
+  camera:
+    description: |
+      Specify the camera angle to change to in a
+      [`<gameplayevent>`](#element-gameplayevent). Not tested, but the
+      value appears to correspond to the numeric camera shortcut keys.
